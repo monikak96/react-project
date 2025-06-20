@@ -1,0 +1,22 @@
+{
+  "name": "react-project",
+  "version": "1.0.0",
+  "description": "First React Project",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monikak96/react-project.git"
+  },
+  "author": "Mounika Kotrika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monikak96/react-project/issues"
+  },
+  "homepage": "https://github.com/monikak96/react-project#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  }
+}
