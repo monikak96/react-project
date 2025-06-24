@@ -1,40 +1,19 @@
-const parent = React.
-createElement(
-    "div",
-    {id:"parent"},
-    React.createElement(
-        "div",
-        {id :"child"},
-        [
-            React.createElement("h1",{},"This is an h1 tag"),
-            React.createElement("h2",{},"This is an h2 tag")
-        ]
-    )
+import React from "react";
+import ReactDOM from "react-dom/client"
+
+// const jsXheading = (<h1 id="heading">
+//     This is a header written using jsX
+//     </h1>);
+// write a functional component
+const MainHeading = () => (
+    <div className="conatiner">
+        <HeadingComponent/>
+        <h1 className="heading"> This is main JS component</h1>
+    </div>
 )
-//for creating two child divs 
-const parent2 = React.
-createElement(
-    "div",
-    {id:"parent"},
-    [
-    React.createElement(
-        "div",
-        {id :"child"},
-        [
-            React.createElement("h1",{},"This is an h1 tag"),
-            React.createElement("h2",{},"This is an h2 tag")
-        ]
-    ),
-    React.createElement(
-        "div",
-        {id :"child2"},
-        [
-            React.createElement("h1",{},"This is an h1 tag"),
-            React.createElement("h2",{},"This is an h2 tag")
-        ]
-    )]
+const HeadingComponent = () => (
+    <h1 className="heading">This is a functional component</h1>
 )
-// now for creating a small html , we need to create a lot of nested createElements which is 
-// Instead we will use JSX
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(parent2)
+
+root.render(< MainHeading/>)
