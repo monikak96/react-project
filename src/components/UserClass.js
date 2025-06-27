@@ -15,9 +15,10 @@ class UserClass extends Component {
     const { name, location } = this.props;
     const { count } = this.state;
     console.log("Child rendered");
-    
+
     return (
       <div className="user-card">
+        <img src="https://avatars.githubusercontent.com/u/29377730?v=4"></img>
         <h2>Name : {name}</h2>
         <h2>
           Count : {count}{" "}
