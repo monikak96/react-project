@@ -1,7 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { SWIGGY_URL } from "../utils/constants";
+import {Link} from "react-router";
 
 const Body = () => {
   const [restaurantList,setRestaurantList] = useState([])
@@ -13,11 +14,14 @@ const Body = () => {
     fetchData()
   },[])
 
-  const fetchData = () =>{
+  const fetchData = async () => {
     // you can change the restauarant list from here , but swiggys api's dont work anymore
-    console.log(resList);
-    setRestaurantList(resList)
-    setFilteredRestaurantList(resList)
+    let restaurantList = await fetch(SWIGGY_URL);
+    let data = await restaurantList.json()
+    console.log(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+
+    setRestaurantList(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+    setFilteredRestaurantList(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
   }
   
 
@@ -63,7 +67,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurantList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}> <RestaurantCard  resData={restaurant} /></Link>
         ))}
       </div>
     </div>
