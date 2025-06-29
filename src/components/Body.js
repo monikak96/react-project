@@ -30,11 +30,11 @@ const Body = () => {
   }
   
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="body ">
+      <div className="filter flex justify-between">
+        <div className="search ">
           <input
-            className="search-box"
+            className="px-2 m-2 border-[1] rounded bg-amber-100"
             type="Text"
             value={searchtext}
             onChange={(e) => {
@@ -42,7 +42,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-btn"
+            className="search-btn px-2 m-2 font-mono border-[1] rounded-lg bg-amber-200 hover:bg-amber-300 hover:cursor-pointer"
             onClick={() => {
               let filteredList = restaurantList.filter((restaurant)=>
                 restaurant.info.name.toLowerCase().includes(searchtext.toLowerCase())
@@ -53,7 +53,7 @@ const Body = () => {
           >Search</button>
         </div>
         <button
-          className="filter-btn"
+          className="filter-btn px-20 m-2 border-[1] rounded-lg bg-amber-200  hover:bg-amber-300 hover:cursor-pointer font-mono"
           onClick={() => {
             let filteredList = restaurantList.filter(
               (restaurant) => restaurant.info.avgRating < 4.4
@@ -65,7 +65,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="res-container px-2 flex flex-wrap">
         {filteredRestaurantList.map((restaurant) => (
           <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id}> <RestaurantCard  resData={restaurant} /></Link>
         ))}
