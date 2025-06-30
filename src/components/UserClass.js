@@ -5,16 +5,13 @@ class UserClass extends Component {
     this.state = {
       count: 0,
     };
-    console.log("Child constructor")
   }
 
   componentDidMount(){
-    console.log("Child Did Mount")
   }
   render() {
     const { name, location } = this.props;
     const { count } = this.state;
-    console.log("Child rendered");
 
     return (
       <div className="user-card">

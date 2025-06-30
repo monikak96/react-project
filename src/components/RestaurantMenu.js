@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/userRestaurantMenu";
 import Shimmer from "./Shimmer";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -8,7 +9,11 @@ const RestaurantMenu = () => {
   const [menu, menuList] = useRestaurantMenu(resId);
 
   if (menuList === null) return <Shimmer />;
-
+  //console.log(menuList)
+  const updatedMenuList = menuList.filter((item)=>
+    item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  )
+//console.log(updatedMenuList)
   return (
     <div>
       <h1 className="border-2 shadow-lg border-orange-100 bg-orange-100 p-4 m-4 rounded-lg font-bold font-mono">
@@ -22,19 +27,9 @@ const RestaurantMenu = () => {
       <h3 className="text-center font-mono font-black">Menu</h3>
       <div className="border-4 px-4 mx-4 rounded-lg border-orange-100"></div>
       <ul className="p-4 m-4 ">
-        {menuList.map((item) => {
+        {updatedMenuList.map((item) => {
           return (
-            <div
-              className="flex font-medium hover:bg-orange-100 rounded-lg font-mono justify-between p-2 m-4 border-8  border-orange-50 bg-orange-50 hover:cursor-pointer"
-              key={item.card.info.id}
-            >
-              <li className="">{item.card.info.name}</li>
-              <li>
-                {"Rs:" +
-                  (item.card.info.price / 100 ||
-                    item.card.info.defaultPrice / 100)}
-              </li>
-            </div>
+            <RestaurantCategory key ={item?.card?.card?.title} data={item}/>
           );
         })}
       </ul>

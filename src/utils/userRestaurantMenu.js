@@ -14,12 +14,13 @@ const useRestaurantMenu = (resId) => {
     let response = await fetch(MENU_URL + resId);
     let data = await response.json();
 
+    //console.log(data?.data?.cards[4]?.groupedCard?.REGULAR?.cards)
     setMenu(data?.data?.cards[2]?.card?.card?.info);
     
     setMenuList(
-      data?.data?.cards[4]?.groupedCard.cardGroupMap?.REGULAR?.cards[2].card
-        .card.itemCards
+      data?.data?.cards[4]?.groupedCard.cardGroupMap?.REGULAR?.cards
     );
+    //.card.card.itemCards
   };
   return[menu,menuList]
 };

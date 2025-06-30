@@ -6,7 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
     const [loginbtn,setLoginButton] = useState("Login")
     const onlineStatus  = useOnlineStatus();
-    console.log(onlineStatus)
+
     return (
       <div className="header p-4 m-2 flex justify-between bg-orange-50 shadow-lg">
         <div className="w-28 shadow-lg rounded-xl">

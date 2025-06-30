@@ -20,10 +20,7 @@ const Body = () => {
     // you can change the restauarant list from here , but swiggys api's dont work anymore
     let restaurantList = await fetch(SWIGGY_URL);
     let data = await restaurantList.json();
-    console.log(
-      data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
-
+ 
     setRestaurantList(
       data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
@@ -35,7 +32,7 @@ const Body = () => {
   if (restaurantList.length === 0) {
     return <Shimmer />;
   }
-  console.log(filteredRestaurantList);
+
   return (
     <div className="body ">
       <div className="filter flex justify-between">
@@ -56,7 +53,6 @@ const Body = () => {
                   .toLowerCase()
                   .includes(searchtext.toLowerCase())
               );
-              console.log(filteredList);
               setFilteredRestaurantList(filteredList);
             }}
           >
@@ -69,7 +65,6 @@ const Body = () => {
             let filteredList = restaurantList.filter(
               (restaurant) => restaurant.info.avgRating < 4.4
             );
-            console.log(filteredList);
             setFilteredRestaurantList(filteredList);
           }}
         >

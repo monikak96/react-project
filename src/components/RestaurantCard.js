@@ -23,7 +23,7 @@ export const withPromotedList = (RestaurantCard) => {
    return(props)=>{
     const { resData } = props;
     return(<div className="relative">
-      <label className="absolute p-2 mx-4 bottom-0 left-0 text-lg rounded-lg bg-orange-100"> {resData.info?.aggregatedDiscountInfoV3?.header + ' '+resData.info?.aggregatedDiscountInfoV3?.subHeader }</label>
+      <label className="absolute p-2 mx-4 bottom-0 left-0 text-lg rounded-lg bg-orange-100"> {resData.info?.aggregatedDiscountInfoV3?.header + ' '+resData.info?.aggregatedDiscountInfoV3?.subHeader  }</label>
       <RestaurantCard {...props}/>
     </div>)
    }

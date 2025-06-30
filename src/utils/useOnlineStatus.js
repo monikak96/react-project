@@ -5,7 +5,6 @@ const useOnlineStatus = () => {
 
   useEffect(() => {
     window.addEventListener("online", () => {
-      console.log("is it working");
       setOnlineStatus(true);
     });
     window.addEventListener("offline", () => {

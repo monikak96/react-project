@@ -5,7 +5,6 @@ class Contact extends Component {
 
   constructor(props) {
     super(props);
-    console.log("parent Constructor");
     this.state = {
         userInfo:{
             "name" : "Default",
@@ -17,21 +16,10 @@ class Contact extends Component {
   async componentDidMount(){
     const userData = await fetch("https://api.github.com/users/monikak96");
     const user = await userData.json()
-    console.log(user)
     this.setState({userInfo:user})
-    console.log(this.state.userInfo)
   }
 
-  componentDidUpdate(){
-    console.log("after the did mount render");
-
-  }
-
-  componentWillUnmount(){
-    console.log("will get printed once you go to another page")
-  }
   render() {
-    console.log("Parent rendered")
     return (
       <div className="contact">
         <h1> Contact</h1>
