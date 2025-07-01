@@ -15,7 +15,7 @@ const ItemsList = (props) => {
       </div>
       <div className="relative p-2 m-auto h-40 w-40 object-fill">
         <img className="rounded-lg m-1" src={FOOD_IMAGE}></img>
-        <label className="absolute border-2 bg-black text-white rounded-lg mx-2 px-2 bottom:0 left:0">Add</label>
+        <label className="absolute border-2 bg-black text-white rounded-lg mx-2 px-2 bottom:0 left:0">Add+</label>
       </div>
     </div>
   );
